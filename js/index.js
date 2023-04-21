@@ -1,16 +1,15 @@
 //Gif de "loading..."
 const loadingElement = document.getElementById("loading");
 const contentElement = document.getElementById("content");
-loadingElement.style.display = "block";
-contentElement.style.display = "none";
 const loadingPromise = new Promise((resolve) => {
   setTimeout(() => {
     resolve();
-  }, 1500);
+  }, 2000);
 });
 loadingPromise.then(() => {
   loadingElement.style.display = "none";
   contentElement.style.display = "block";
+  renderMotos();
 });
 
 function guardarMotos() {
@@ -19,7 +18,7 @@ function guardarMotos() {
     .then((datos) => {
       localStorage.setItem("motos", JSON.stringify(datos));
     });
-}
+} //Guarda las motos que busca con el fetch al JSON
 
 function cargarMotosLS() {
   return JSON.parse(localStorage.getItem("motos")) || [];
@@ -47,7 +46,7 @@ function renderMotos() {
   }
 
   document.getElementById("motos").innerHTML = salida;
-}
+} //Renderiza las motos en los divs creados dinamicamente
 
 function motoAgregada() {
   Toastify({
@@ -55,7 +54,6 @@ function motoAgregada() {
 
     duration: 1500,
   }).showToast();
-}
+} //Alert al clickear una moto para agregar al carrito
 
-renderMotos();
 renderBotonCarrito();

@@ -1,4 +1,4 @@
-//Funcion que renderiza las motos del JSON
+//Funcion que renderiza las motos del carrito
 function renderMotosCarrito() {
   const motos = cargarMotosCarrito();
   let salida = "";

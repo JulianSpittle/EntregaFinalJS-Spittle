@@ -40,7 +40,7 @@ function eliminarMoto(id) {
   guardarMotosCarrito(motos);
   renderMotosCarrito();
   renderBotonCarrito();
-}
+}//Elimina motos cargadas al carrito y lo actualiza
 
 function buscarMoto(id) {
   const motos = cargarMotosLS();
